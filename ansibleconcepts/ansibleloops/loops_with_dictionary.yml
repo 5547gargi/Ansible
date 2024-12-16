@@ -1,0 +1,42 @@
+---
+ - name: Play for Loops working with lists
+   hosts: localhost
+   gather_facts: false
+   vars: 
+    reqFile:
+      config: 
+        dir: '/tmp'
+        mode: '0500'
+      config.default:
+        dir: '/home/ansadmin'
+        mode': '0755'
+      config.test: { 'dir': '/home/ansadmin/apbooks' , 'mode': '0600' }
+   tasks:
+    - name: Creating a file
+        # ansible.builtin.debug:
+        #   msg: "{{item}}"
+        # with_dict: "{{reqFiles}}"  
+      ansible.builtin.file:
+        path: "{{item.value.dir}}/{{item.key}}"
+        mode: "{{item.value.mode}}"
+        state: touch
+      with_dict: "{{reqFile}"
+
+  #  - name: Play for Loops working with lists
+  #    hosts: localhost
+  #    gather_facts: false
+  #    vars: 
+  #     reqFile:
+  #      - { 'name': 'config' , 'dir': '/tmp' , 'mode': '0500'} 
+  #      - { 'name': 'config.default' , 'dir': '/home/ansadmin' , 'mode': '0755' }
+  #      - { 'name': 'config.test' , 'dir': '/home/ansadmin/apbooks' , 'mode': '0600' }
+  #    tasks:
+  #     - name: Creating a file
+  #         # ansible.builtin.debug:
+  #         #   msg: "name={{item.name}} dir={{item.dir}}"
+  #         # loop: "{{reqFile}}"  
+  #       ansible.builtin.file:
+  #         path: "{{item.dir}}/{{item.name}}"
+  #         mode: "{{item.mode}}"
+  #          state: touch        
+  #       loop: "{{reqFile}}"
