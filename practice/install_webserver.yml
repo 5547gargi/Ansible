@@ -1,0 +1,19 @@
+---
+  - name: Play to install webserver
+    hosts: "{{reqHosts}}"
+    gather_facts: true
+    become: true
+    tasks:
+     - name: Installing webserver on RHEL server
+       ansible.builtin.yum:
+         #  msg: "{{ansible_facts.os_family}}"
+         name: httpd
+         state: present
+         update_cache: true
+       when: ansible_facts.os_family == "RedHat"
+     - name: Installing webserver on Debin server
+       ansible.builtin.apt:
+         name: httpd
+         state: present
+         update_cache: true
+       when: ansible_facts.os_family == "Debian" 
