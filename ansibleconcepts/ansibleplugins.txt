@@ -1,0 +1,4 @@
+ansible-doc -l  # to list all ansible modules
+ansible-doc --help
+ansible-doc -t filter -l # to list all filter plugins
+ansible-doc -t connection -l # to list all connection plugins

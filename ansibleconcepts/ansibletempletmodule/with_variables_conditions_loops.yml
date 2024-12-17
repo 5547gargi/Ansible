@@ -1,0 +1,18 @@
+---
+ - name: Template module usage with Template file with varables and conditions
+   hosts: localhost
+   gather_facts: false
+   vars:
+     a: 60
+     b: 40
+     myString: "Ansible Palybooks"
+     myList:
+       - nginx
+       - vim
+       - wget
+       - curl
+   tasks:
+     - name: Copying file from src to dest using template module
+       ansible.builtin.template:
+         src: template_file_with_varables_conditons_loops.j2
+         dest: template_file_with_varables_conditons_loops.txt
