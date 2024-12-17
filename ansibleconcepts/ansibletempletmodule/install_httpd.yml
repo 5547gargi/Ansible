@@ -1,0 +1,32 @@
+---
+ - name: Play to Install httpd/apache2 on different os_family
+   hosts: dev
+   gather_facts: true
+   vars:
+     pkgName:
+       RedHat: httpd
+       Debian: apache2
+   become: yes
+   tasks:
+     - name: Installing Package On RHEL Family
+       ansible.builtin.yum:
+         name: "{{pkgName.get(ansible_facts.os_family)}}"
+         state: present
+         update_cache: true
+       when: ansible_facts.os_family == "RedHat"
+     - name: Installing Package On Debian Family
+       ansible.builtin.apt:
+         name: "{{pkgName.get(ansible_facts.os_family)}}"
+         state: present
+         update_cache: true
+       when: ansible_facts.os_family == "Debian"
+     - name: Copying the index.html file to /var/www/html/index.html
+       templet:
+         src: index.j2
+         dest: /var/www/html/index.html
+       notify: Restart webserver
+   handlers: 
+     - name: Restart Webserver
+       ansible.builtin.service:
+         name: "{{pakName.get(ansible_facts.os_family)}}"
+         state: restarted
