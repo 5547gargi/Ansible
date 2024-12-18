@@ -1,0 +1,21 @@
+# To install aws collection on the controller node :-
+* go to project location and apply the below command
+ansible-galaxy collection install amazon.aws -p ./collections
+
+# To count howmany modules do we have : ansible-doc -l | wc -l
+*After downloading the collections ; we have to mention them under ansible.cfg file
+
+# To see the ansible-collection version : ansible-galaxy collection list
+
+# To see all the collections namespaces
+cd /collections/ansible_collections
+ls -lrt
+cd /amazon/aws
+ls -lrt # to see all the collections files and directories 
+cat requirement.txt
+botocore>=1.25.0
+boto3>=1.22.0
+
+# Now we have to install the dependencies :
+pip3 install botocore --user
+pip3 install boto3 --user
