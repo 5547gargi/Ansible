@@ -19,3 +19,23 @@ boto3>=1.22.0
 # Now we have to install the dependencies :
 pip3 install botocore --user
 pip3 install boto3 --user
+
+Ansible Dynamic Inventory for AWS Cloud with plugin :-
+----------------------------------------------------------
+Step1: Install aws collection
+Step2: Get Access Keys for AWS Account
+Step3: create inventory file, Example: aws ec2.yml or myproject. aws_ec2.yml
+Step4: Write the logic in inventory file by following the documentation of aws ec2_inventory plugin
+
+ansible-doc -t inventory -l | grep aws
+amazon.aws.aws_ec2     EC2 inventory source
+amazon.aws.aws_rds     RDS instance inventory source
+
+pip3 install awscli --user
+aws configure --profile=ansautomation
+AWS ACCESS KEY ID [None]: AKIAQD4EUQEZQPY47J55
+AWS ECRET ACCESS KEY [None]: adXmT2ciYG+7smhnxRj9cO6jphAytow8TcQIMZHI
+Default region name [None]: us-east-1
+Default output format [None]: json
+
+cp -iv aws_ec2.yml aws_ec2.yml_inv_bkp
