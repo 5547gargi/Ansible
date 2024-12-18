@@ -1,0 +1,39 @@
+Working with AWS EC2 Instances Using Dynamic Inventory with Default ec2_user :-
+---------------------------------------------------------------------------------
+1.login to Ansible controllernode
+2.create project directory
+  mkdir projectx
+3.install aws collection to use aws ec2 inventory plugin
+  cd projectx
+  ansible-galaxy collection install amazon.aws -p ./collections
+4.make sure having python, boto3, botocore modules with required versions 
+  cd collections/ansible_collections/amazon/aws/
+  cat requirements.txt
+  botocore>=1.25.0
+  boto3>=1.22.0
+  pip3 show botocore
+  pip3 show boto3
+  pip3 install botocore --user
+  pip3 install boto3 --user
+5.configure awscli with profilename
+  get AWS ACCESS Key: AKIAQD4EUQEZQPY47J55
+      AWS SECRET ACCESS KEY: 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
+  pip3 show awscli    
+  aws configure --profile=projectx
+  AWS ACCESS KEY ID [None]: AKIAQD4EUQEZQPY47J55
+  AWS SECRET ACCESS KEY [None]: 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
+  Default region name [None]: us-east-1
+  Default output format [None]: json
+6.create ec2 instances with required pem file
+7.copt the pem file to project location, make sure 600 permission for pemfile
+8.create dynamic inventory file with required logic, File name must be end with aws_ec2.yml
+9.verify the dynamic inventory logic :-
+  ansible-inventory -i projectx.aws_ec2.yml --graph
+10.create ansible.cfg file and update the defauilts
+  cp -iv /workspaces/Ansible/practice/ansible.cfg .
+11.update user and pemfile info in ansible.cfg
+
+ansible-inventory --graph
+ansible projectx_dev -m ansible.builtin.ping 
+
+ansible-playbook installingwebserver.yml
