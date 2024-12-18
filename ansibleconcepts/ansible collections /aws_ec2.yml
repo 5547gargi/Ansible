@@ -1,0 +1,16 @@
+---
+plugin: amazon.aws.aws_ec2
+boto_profile: ansautomation
+regions:
+   - us-east-1
+   - us-east-2
+leading_separator: false
+keyed_groups:
+   - key: tags.Env
+filters:
+   instance-state-name: running
+
+# to run : ansible-inventory -i aws_ec2.yml --list 
+#          ansible-inventory -i aws_ec2.yml --graph
+# ansible aws_ec2 -m ansible.builtin.ping -i aws_ec2.yml
+# ansible dev -m ansible.builtin.ping -i aws_ec2.yml
