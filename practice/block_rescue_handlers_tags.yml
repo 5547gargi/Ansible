@@ -24,7 +24,7 @@
             cmd: 'nginx -v'
           register: nginxVersionOutput
           notify: Display Nginx Version
-       rescue:
+      rescue:
         - name: Display Nginx Version
           ansible.builtin.debug:
            msg: "nginxVersion : nginx Not Found"    
@@ -32,13 +32,13 @@
        - never
        - nginx
        - javanginx
-  handlers:
+   handlers:
     - name: Display Java Version
       ansible.builtin.debug:
         msg: "javaVersion : {{(javaVersionOutput.stderr|split)[2]|trim('\"')}}"
     - name: Display Nginx Version
       ansible.builtin.debug:
-        msg: "nginxVersion: {{(nginxVersionOutput.stderr|split('/'))[-1]}}""
+        msg: "nginxVersion: {{(nginxVersionOutput.stderr|split('/'))[-1]}}"
 
 
 # ansible-playbook block_rescue_handlers_tags.yml -t javanginx -e 'reqTargets=dev'

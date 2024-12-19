@@ -1,0 +1,23 @@
+1. Go to project location and create roles directory
+   mkdir roles
+2. Navigate to roles directory and create a directory structure in the name of httpd
+   ansible-galaxy init httpd --offline 
+   *here we are giving --offline option as to avoid the downloading the httpd directory structure or role from online if it is available in your ansible galaxy.
+   -Role httpd was created successfully will promt in your terminal
+   httpd
+   |--defaults    
+   |  |__main.yml *used to define default variables; this is having least priority in comparison to vars directory. 
+   |--files       *sometimes using copy module we copy a src file to manage nodes (static files) that file we can keep here; for which no need to mention the complete path for the file in the playbook
+   |--handlers    
+   |  |__main.yml  *handlers logics we can write inside main.yml file
+   |--meta         
+   |  |__main.yml *to give some info about the auther/role we can keep hee.
+   |--README.md   *some required descriptions we can keep here 
+   |--tasks        
+   |  |__main.yml  *here we can keep all the required tasks
+   |--templets    *To create dynamic content we are using jinja templates; those files we can keep here. 
+   |--tests       * To create some test cases we can use this directory.
+   |  |__inventory
+   |  |__test.yml
+   |--vars        *we can define variables here; this is having highest priority than defaults directory
+      |__main.yml

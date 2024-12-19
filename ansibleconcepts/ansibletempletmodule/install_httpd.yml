@@ -21,7 +21,7 @@
          update_cache: true
        when: ansible_facts.os_family == "Debian"
      - name: Copying the index.html file to /var/www/html/index.html
-       templet:
+       template:
          src: index.j2
          dest: /var/www/html/index.html
        notify: Restart webserver
