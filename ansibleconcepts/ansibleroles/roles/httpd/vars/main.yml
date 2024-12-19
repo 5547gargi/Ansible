@@ -1,0 +1,5 @@
+---
+# vars file for httpd
+packageName:
+    RedHat: httpd
+    Debian: apache2
