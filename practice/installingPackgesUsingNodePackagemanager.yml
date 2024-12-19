@@ -26,4 +26,4 @@
 # ansible-playbook installingPackgesUsingNodePackagemanager.yml -e  "reqPkg=nginx"
 # ansible-playbook installingPackgesUsingNodePackagemanager.yml -e  "reqPkg=['nginx','vim','wget']"
 #ansible-playbook installingPackgesUsingNodePackagemanager.yml -e  '{"reqPkg": {"yum": "httpd", "dnf": "httpd", "apt": "apache2" }}'
-ansible-playbook installingPackgesUsingNodePackagemanager.yml -e  '{"reqPkg": {"yum": ["httpd" , "wget"], "dnf": ["httpd" , "curl"], "apt": ["apache2" , "vim"]} }'
+# ansible-playbook installingPackgesUsingNodePackagemanager.yml -e  '{"reqPkg": {"yum": ["httpd" , "wget"], "dnf": ["httpd" , "curl"], "apt": ["apache2" , "vim"]} }'
