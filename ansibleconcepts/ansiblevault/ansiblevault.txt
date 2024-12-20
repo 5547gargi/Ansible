@@ -11,3 +11,5 @@ we can see the content by the use of 'view', by using 'encrypt_string' we can en
 *It will fail as it won't found as it need vault password for execution.
 6.ansible-playbook provisionEC2_instance.yaml --ask-vault-password
 7.ansible-vault encrypt aws_keys.yml
+8.ansible-playbook provisionEC2_instance.yaml --ask-vault-password
+9.ansible-vault create demo.yml # while creating file we can encrypt the file by this way.
