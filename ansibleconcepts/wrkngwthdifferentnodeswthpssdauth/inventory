@@ -9,3 +9,7 @@
 [prod]
 38.212.13.142
 64.203.170.125
+
+[all:vars]
+ansible_user=abc123
+ansible_ssh_pass=abc123
