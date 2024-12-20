@@ -1,0 +1,5 @@
+ansible dev -m ansible.builtin.ping -u abc123 -k
+
+*It will promt for to enter the user password ; here we want to execute with different user onther than ansible-user.
+
+ansible-playbook demo.yml -u abc123 -k

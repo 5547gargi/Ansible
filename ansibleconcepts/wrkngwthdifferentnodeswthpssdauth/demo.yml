@@ -1,0 +1,13 @@
+---
+  - hosts: dev
+    gather_facts: false
+    #user: abc123
+    tasks:
+      - ansible.builtin.shell: 'whoami'
+        register: output
+      - ansible.builtin.debug:
+          msg: "{{output}}"
+
+#ansible-playbook demo.yml -u abc123 -k
+#ansible-playbook demo.yml -k
+#ansible dev -m ansible.builtin.ping -k 

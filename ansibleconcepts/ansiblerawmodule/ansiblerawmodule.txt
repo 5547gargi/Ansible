@@ -1,0 +1,2 @@
+*Ansible raw module is a builtin module used to execute low level commands on managed nodes.
+ exp: ansible test -m ansible.buitin.raw -a 'date' 
