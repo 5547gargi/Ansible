@@ -1,0 +1,4 @@
+---
+ansible_user: xyz123
+ansible_ssh_pass: xyz123
+ansible_sudo_pass: xyz123

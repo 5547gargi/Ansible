@@ -6,5 +6,7 @@ ansible-playbook demo.yml -u abc123 -k
 ansible-playbook demo.yml -u abc123 -k
 ansible-playbook demo.yml -k
 ansible dev -m ansible.builtin.ping -k 
-ansible dev -m ansible.builtin.ping
+ansible dev -m ansible.builtin.ping  # after mentioning  userid and password in group_vars/all
 
+ansible dev -m ansible.builtin.ping -b -K # for sudo userpassword
+ansible dev -m ansible.builtin.ping -b   # after mentioning  sudo password in group_vars/dev
