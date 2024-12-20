@@ -1,0 +1,12 @@
+1.ansible-vault --help
+
+By using ansible-vault we can 'encrypt' a playbook or a file using password also we can 'decrypt', or by using 'create' command
+while creating yaml file we can encrypt, also file is encrypted by using 'edit' we can edit the file if we know the file password.
+we can see the content by the use of 'view', by using 'encrypt_string' we can encrypt any string; by using 'rekey' can reencrypt the file.
+
+2.ansible-vault encrypt provisionEC2_instance.yaml
+3.ansible-vault view provisionEC2_instance.yaml
+4.ansible-vault edit provisionEC2_instance.yaml
+5.ansible-playbook provisionEC2_instance.yaml 
+*It will fail as it won't found as it need vault password for execution.
+6.ansible-playbook provisionEC2_instance.yaml --ask-vault-password
