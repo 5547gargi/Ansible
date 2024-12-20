@@ -1,0 +1,3 @@
+---
+ansible_user: abc123
+ansible_ssh_pass: abc123
